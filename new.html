@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Restaurant</title>
+    <style>
+        /* Your existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-image: url('https://th.bing.com/th/id/OIP.NW9HK6JJP4qJhlAip8zVywHaE8?w=289&h=193&c=7&r=0&o=5&pid=1.7');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 2679px;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        #headerVideo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: white;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        nav {
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            border: 2.5px solid black;
+            border-radius: 5px;
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 29px;
+            font-family: Arial, sans-serif;
+            transition: color 0.3s ease;
+            padding-left: 4px;
+            margin-left: 5px;
+            margin-right: 6px;
+            margin-bottom: 5px;
+        }
+
+        nav a:hover {
+            color: #f0a500;
+        }
+
+        #home {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 50px 20px;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+        }
+
+        #home h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #f0a500;
+        }
+
+        #home p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        #menu {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: none; /* Initially hidden */
+        }
+
+        #menu h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #c0392b;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .menu-item h3 {
+            font-size: 24px;
+            margin: 20px;
+            color: #c0392b;
+            flex: 1 1 100%;
+            text-align: center;
+        }
+
+        .menu-image {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            max-height: 400px;
+            object-fit: cover;
+            border-bottom: 2px solid #c0392b;
+        }
+
+        .menu-details {
+            padding: 20px;
+            flex: 1 1 100%;
+        }
+
+        .menu-details p {
+            font-size: 18px;
+            color: #555;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .menu-item {
+                flex-wrap: nowrap;
+                align-items: center;
+            }
+
+            .menu-image {
+                flex: 1 1 50%;
+                border-bottom: none;
+                border-right: 2px solid #c0392b;
+            }
+
+            .menu-details {
+                flex: 1 1 50%;
+                padding-left: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu-details p {
+                text-align: left;
+            }
+        }
+
+        .order {
+            background-color: #fef6e4;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 500px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .order h2 {
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #d35400;
+        }
+
+        .order label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .order input[type="text"],
+        .order input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #e67e22;
+            border-radius: 8px;
+            background-color: #fff;
+            font-size: 1em;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        .order input[type="text"]:focus,
+        .order input[type="number"]:focus {
+            border-color: #d35400;
+            outline: none;
+        }
+
+        .order input[type="submit"] {
+            width: 100%;
+            background-color: #d35400;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .order input[type="submit"]:hover {
+            background-color: #e67e22;
+        }
+
+        footer {
+            color: blue;
+            text-align: center;
+            padding: 0.002px;
+            width: 70%;
+            bottom: 0;
+        }
+
+        .move {
+            padding-top: 0.02px;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <video autoplay muted loop id="headerVideo">
+        <source src="TRIM_CINEMATIC COOKING B ROLL (1080p)_20240810_095742.webm" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="header-content">
+        <h1 font-size="50px">ENJOYMENT RESTAURANT</h1>
+    </div>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="javascript:void(0);" onclick="toggleMenu()">Menu</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <h2>About Us</h2>
+    <p>At ENJOYMENT RESTAURANT, we offer the finest cuisine made from the freshest ingredients. Our chefs are passionate about creating meals that are not only tasty but also a feast for the eyes and your appetite</p>
+</section>
+
+<section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-item">
+        <h3>Spaghetti Carbonara</h3>
+        <img src="https://th.bing.com/th?id=OSK.1ef0ff67be046806c5080f55c1124fb4&w=194&h=129&rs=2&qlt=80&o=6&cdv=1&pid=16.1" alt="Spaghetti Carbonara" class="menu-image">
+        <div class="menu-details">
+            <p>Creamy pasta with pancetta, eggs, and Parmesan cheese. $12.99</p>
+        </div>
+    </div>
+    <div class="menu-item">
+        <h3>Caesar Salad</h3>
+        <img src="https://th.bing.com/th?id=OSK.HERObmQdIvafDSRT4xa-gSzpZi-HOBVBsJ8L8gmj0TOrKfMB&w=186&h=125&rs=2&qlt=80&o=6&cdv=1&pid=16.1" alt="Caesar Salad" class="menu-image">
+        <div class="menu-details">
+            <p>Fresh romaine lettuce, croutons, Parmesan cheese, and Caesar dressing. $8.99</p>
+        </div>
+        <div class="menu-item">
+            <h3>Welsh Rarebit</h3>
+            <img src="https://www.simplyrecipes.com/thmb/9JYZ8RueZJpin5XurXFn-us4tSQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Welsh-Rarebit-LEAD-4-a6114d530a7041a1ad096999e93c3aa3.jpg" alt="Welish Rarebit" width="350px" height="350px"class="menu-image">
+            <div class="menu-details">
+                <p>A dish made with a rich cheese sauce, often including mustard and ale, poured over toasted bread and grilled until golden and bubbling $15.3.</p></div>
+    
+         <div class="menu-item">
+            <h3>Steak and Kidney Pie</h3>
+        <img src="https://www.bing.com/th?id=OIP.gmzKlwQgyuzy4co8zRnlUgHaHa&w=146&h=146&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="steak and kidney" width="350px" height="350px"class="menu-image">
+         <div class="menu-details">
+        <p>A savory pie filled with diced beef, kidney (usually from a lamb or cow), onions, and gravy, encased in a flaky pastry $20.1</p></div>
+    
+         <div class="menu-item">
+        <h3>Beef Wellington</h3>
+         <img src="https://www.bing.com/th?id=OIP.yrK17UpGgNKMcbQ_VPY40QHaHa&w=146&h=146&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Beef Wellington" width="350px" height="350px"class="menu-image">
+             <div class="menu-details">                    
+        <p> A luxurious dish of beef fillet coated with pâté and duxelles (a finely chopped mixture of mushrooms), wrapped in puff pastry, and baked. $11.9</p></div>
+    
+         <div class="menu-item">
+        <h3> Fish and Chips</h3>
+          <img src="https://cdn.tasteatlas.com/images/dishes/952be31521114ce89c8525996e17dbce.jpg" alt="fish and chips" width="350px" height="350px"class="menu-image">
+            <div class="menu-details">
+                 <p> Deep-fried battered fish (usually cod or haddock) served with thick-cut fries (chips) and often accompanied by mushy peas and tartar sauce</p></div>
+     
+    </div>
+</section>
+
+<section id="order" class="order">
+    <h2>Place Your Order</h2>
+    <form action="/submit-order" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="order-details">Order Details:</label>
+        <input type="text" id="order-details" name="order-details" required>
+
+        <input type="submit" value="Submit Order">
+    </form>
+</section>
+
+<footer class="move">
+    <p>&copy; 2024 Enjoyment Restaurant. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        var menuSection = document.getElementById("menu");
+        if (menuSection.style.display === "none" || menuSection.style.display === "") {
+            menuSection.style.display = "block";
+        } else {
+            menuSection.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

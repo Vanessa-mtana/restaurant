@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Restaurant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color:white;
+            
+
+    background-image: url('https://th.bing.com/th/id/OIP.NW9HK6JJP4qJhlAip8zVywHaE8?w=289&h=193&c=7&r=0&o=5&pid=1.7');
+    background-size: cover; /* Adjusts the image to cover the entire div */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    width: 100%; /* Ensures the div takes up the full width of its container */
+    height: 3500px; /* Adjust as needed for your design */
+}
+
+
+header {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Adjust the height of the header as needed */
+    overflow: hidden;
+}
+
+/* Video background styling */
+#headerVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+}
+.header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 2.5em; /* Adjust font size */
+    color: white;
+}
+        section {
+            padding: 20px;
+        }
+        /* Navigation styles */
+nav {
+    background-color: none /* Background color of the navigation bar */
+    padding :  10px;          /* Padding inside the navigation bar */
+    text-align: center;     /* Center-aligns the navigation links */
+    
+}
+
+/* Styles for navigation links */
+nav a {
+    border:2.5px solid black;
+    border-radius:5px;
+    margin: 0 15px;         /* Space between the links */
+    color: black;          /* Text color of the links */
+    text-decoration: none;  /* Removes the underline from the links */
+    font-size: 29px;       /* Increases the font size */
+    font-family: Arial, sans-serif; /* Sets a clean, modern font */
+    transition: color 0.3s ease; /* Adds a smooth transition effect */
+    padding-left: 4px;
+    margin-left: 5px;
+    margin-right: 6px;
+    margin-bottom: 5px;
+}
+
+/* Hover effect for links */
+nav a:hover {
+    color: #f0a500; /* Changes color on hover */
+}
+/* Styles for the About Us section */
+#home {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: rgb(190, 51, 51);                         /* White text color for visibility */
+    padding: 50px 20px;                   /* Adds padding around the content */
+    border-radius: 12px;                  /* Rounded corners for a smooth look */
+    max-width: 800px;                     /* Limits the width of the section */
+    margin: 50px auto;                    /* Centers the section horizontally */
+    text-align: center;                   /* Center-aligns the text */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    font-family: Arial, sans-serif;       /* Clean, modern font */
+}
+
+/* Heading styles */
+#home h2 {
+    font-size: 2.5em;                     /* Larger font size for the heading */
+    margin-bottom: 20px;                  /* Space below the heading */
+    color: #f0a500;                       /* Accent color for the heading */
+}
+
+/* Paragraph styles */
+#home p {
+    font-size: 1.2em;                     /* Slightly larger text for readability */
+    line-height: 1.6;                     /* Increases line spacing for clarity */
+    margin-bottom: 0;                     /* No margin below the paragraph */
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#menu {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#menu h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #859721; /* Dark red color */
+}
+
+/* Menu Item Styles */
+.menu-item {
+    background-color: #cfcd4a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    visibility: visible; /* Ensures visibility */
+}
+
+.menu-item h3 {
+    font-size: 24px;
+    margin: 20px;
+    color: #c0392b; /* Dark red color */
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+.menu-image {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    max-height: 400px;
+    object-fit: cover;
+    border-bottom: 2px solid #c0392b;
+    visibility: visible; /* Ensures visibility */
+    clear: both; /* Clears floating elements */
+}
+
+.menu-details {
+    padding: 20px;
+    flex: 1 1 100%;
+    visibility: visible; /* Ensures visibility */
+    clear: both; /* Clears floating elements */
+}
+
+.menu-details p {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    visibility: visible; /* Ensures visibility */
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .menu-item {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .menu-image {
+        flex: 1 1 50%;
+        border-bottom: none;
+        border-right: 2px solid #c0392b;
+    }
+
+    .menu-details {
+        flex: 1 1 50%;
+        padding-left: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-details p {
+        text-align: left;
+    }
+}
+
+
+
+
+        .order {
+    background-color: #fef6e4; /* Soft, warm background color */
+    border-radius: 12px; /* Smooth, rounded corners */
+    padding: 30px; /* Generous padding for comfortable spacing */
+    margin: 40px auto; /* Center the order form on the page */
+    max-width: 500px; /* Limit the width for a clean layout */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
+}
+
+.order h2 {
+    text-align: center; /* Center the heading */
+    font-size: 1.8em; /* Larger font size for emphasis */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #d35400; /* Vibrant color for the heading */
+}
+
+.order label {
+    display: block; /* Make labels full width */
+    margin-bottom: 10px; /* Space below each label */
+    font-weight: bold; /* Bold label text */
+    color: #333; /* Darker text color for contrast */
+}
+
+.order input[type="text"],
+.order input[type="number"] {
+    width: 100%; /* Full width inputs */
+    padding: 12px; /* Padding inside the input fields */
+    margin-bottom: 20px; /* Space below each input field */
+    border: 2px solid #e67e22; /* Border with accent color */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #fff; /* White background for inputs */
+    font-size: 1em; /* Standard font size */
+    color: #333; /* Dark text color */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.order input[type="text"]:focus,
+.order input[type="number"]:focus {
+    border-color: #d35400; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+}
+
+.order input[type="submit"] {
+    width: 100%; /* Full width submit button */
+    background-color: #d35400; /* Button background color matching header */
+    color: white; /* White text color */
+    padding: 15px; /* Comfortable padding inside the button */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1.2em; /* Slightly larger font size */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.order input[type="submit"]:hover {
+    background-color: #e67e22; /* Slightly lighter color on hover */
+}
+
+        h2 {
+            color: brown;
+        }
+        footer {
+            
+            color: blue;
+            text-align: center;
+            padding: 0.002px;
+            position:bottom;
+            width: 70%;
+            bottom: 0;
+        }
+        .move{
+            padding-top: 0.02px;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            margin: 10px 0;
+        }
+        .contact
+        {
+            text-align: left;
+            margin-left: 23px;
+            font-size: 15px;
+            color: rgb(211, 15, 15);
+
+        }
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <video autoplay muted loop id="headerVideo">
+            <source src="TRIM_CINEMATIC COOKING B ROLL (1080p)_20240810_095742.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Header content -->
+        <div class="header-content">
+            <h1 font-size="50px">ENJOYMENT RESTAURANT</h1>
+        </div>
+    </header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="javascript:void(0);" onclick="toggleMenu()">Menu</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <h2>About Us</h2>
+    <p>At ENJOYMENT RESTAURANT, we offer the finest cuisine made from the freshest ingredients. Our chefs are passionate about creating meals that are not only tasty but also a feast for the eyes and your appetite</p>
+</section>
+
+
+<section id="menu">
+    <h2>Our Menu</h2>
+
+    <div class="menu-item">
+        <h3>Cheese Burger</h3>
+        <img src="https://th.bing.com/th/id/OIP.qUVPO7wmlLgXPHOb47dLcgHaHa?w=640&h=640&rs=1&pid=ImgDetMain" alt="Cheese Burger" class="menu-image">
+        <div class="menu-details">
+            <p>Fries, 650ml soda. $11.99</p>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <h3>Welsh Rarebit</h3>
+        <img src="https://www.simplyrecipes.com/thmb/9JYZ8RueZJpin5XurXFn-us4tSQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Welsh-Rarebit-LEAD-4-a6114d530a7041a1ad096999e93c3aa3.jpg" alt="Welsh Rarebit" class="menu-image">
+        <div class="menu-details">
+            <p>A dish made with a rich cheese sauce, often including mustard and ale, poured over toasted bread and grilled until golden and bubbling. $15.30</p>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <h3>Steak and Kidney Pie</h3>
+        <img src="https://www.bing.com/th?id=OIP.gmzKlwQgyuzy4co8zRnlUgHaHa&w=146&h=146&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Steak and Kidney Pie" class="menu-image">
+        <div class="menu-details">
+            <p>A savory pie filled with diced beef, kidney (usually from a lamb or cow), onions, and gravy, encased in a flaky pastry. $20.10</p>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <h3>Beef Wellington</h3>
+        <img src="https://www.bing.com/th?id=OIP.yrK17UpGgNKMcbQ_VPY40QHaHa&w=146&h=146&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Beef Wellington" class="menu-image">
+        <div class="menu-details">
+            <p>A luxurious dish of beef fillet coated with pâté and duxelles (a finely chopped mixture of mushrooms), wrapped in puff pastry, and baked. $11.90</p>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <h3>Fish and Chips</h3>
+        <img src="https://cdn.tasteatlas.com/images/dishes/952be31521114ce89c8525996e17dbce.jpg" alt="Fish and Chips" class="menu-image">
+        <div class="menu-details">
+            <p>Deep-fried battered fish (usually cod or haddock) served with thick-cut fries (chips) and often accompanied by mushy peas and tartar sauce. $13.99</p>
+        </div>
+    </div>
+</section>
+
+   
+
+<div class="order"><h2>MAKE YOUR ORDER</h2>
+    <label>FIRST NAME:<input type="text" required><br></label>
+    <label>LAST NAME:<input type="text" required><br></label>
+    <label>CONTACT:<input type="number"placeholder="255" required><br></label>
+    <label>YOUR LOCATION:<input type="text" required></label>
+    <label>FOOD YOU WANT TO ORDER:<input type="text" required></label>
+    <div class="button"><button>ORDER </button></div>
+</div>
+
+
+
+<div class="contact">
+    <h2>Contact Us</h2>
+    <form action="#" method="post">
+        <label for="name">management</label><br>
+        <h3>+255754678</h3><br>
+        <label for="email">enjoymentrestaurant.com</label><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        <input type="submit" value="Send">
+    </form>
+</div>
+    
+<div class="move">
+<marquee><h2>"Indulge in mouthwatering flavors that will awaken your senses and leave you craving more—join us for an unforgettable taste experience!"</h2></marquee></div><br>
+<footer>
+    <p>&copy; 2024 enjoymentRestaurant. All Rights Reserved.</p>
+</footer>
+<script>
+    function toggleMenu() {
+        var menuSection = document.getElementById("menu");
+        if (menuSection.style.display === "none" || menuSection.style.display === "") {
+            menuSection.style.display = "block";
+        } else {
+            menuSection.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
